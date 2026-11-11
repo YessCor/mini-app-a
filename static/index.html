@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f5f4ef" />
+    <meta name="description" content="Pon a prueba tu curiosidad con Trivia Club." />
+    <title>Trivia Club — ¿Cuánto sabes?</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+    <script src="/static/app.js" defer></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="Trivia Club, inicio">
+          <span class="brand-mark">?</span>
+          <span>trivia<span class="brand-light">club</span></span>
+        </a>
+        <div class="topbar-note"><span class="live-dot"></span> Un ratito para tu cerebro</div>
+        <a class="api-link" href="/docs" target="_blank" rel="noreferrer">API <span>↗</span></a>
+      </header>
+
+      <main>
+        <section id="home-screen" class="screen home-screen">
+          <div class="hero-copy">
+            <div class="eyebrow"><span class="spark">✳</span> CURIOSIDAD EN MODO JUEGO</div>
+            <h1>¿Cuánto sabes<br />de <span>todo un poco?</span></h1>
+            <p class="hero-description">
+              Cinco preguntas, un montón de datos curiosos y cero presión. ¿Te apuntas?
+            </p>
+            <div class="hero-details">
+              <span><span class="detail-icon">◷</span> 2 minutos</span>
+              <span><span class="detail-icon">✳</span> 5 preguntas</span>
+              <span><span class="detail-icon">♡</span> 100% diversión</span>
+            </div>
+          </div>
+
+          <section class="category-section" aria-labelledby="category-title">
+            <div class="section-heading">
+              <div>
+                <p class="section-kicker">ELIGE TU AVENTURA</p>
+                <h2 id="category-title">¿Qué te apetece hoy?</h2>
+              </div>
+              <span class="section-aside">o déjate sorprender <span>↗</span></span>
+            </div>
+
+            <div id="category-grid" class="category-grid" aria-live="polite">
+              <div class="loading-card">Preparando categorías<span>…</span></div>
+            </div>
+
+            <button id="random-button" class="random-button" type="button">
+              <span class="random-icon">✦</span>
+              <span><strong>Me siento con suerte</strong><small>Mezcla todas las categorías</small></span>
+              <span class="button-arrow">→</span>
+            </button>
+          </section>
+
+          <div class="bottom-note"><span>✦</span> Aprende algo nuevo en cada partida.</div>
+        </section>
+
+        <section id="quiz-screen" class="screen quiz-screen" hidden>
+          <div class="quiz-top">
+            <button id="quit-button" class="text-button" type="button">← <span>Salir</span></button>
+            <span id="quiz-category" class="quiz-category"></span>
+            <span id="quiz-counter" class="quiz-counter"></span>
+          </div>
+          <div class="progress-track"><div id="progress-bar" class="progress-bar"></div></div>
+          <div class="question-wrap">
+            <p id="question-kicker" class="question-kicker"></p>
+            <h2 id="question-text"></h2>
+            <div id="answer-list" class="answer-list"></div>
+            <div id="feedback" class="feedback" aria-live="polite" hidden>
+              <div class="feedback-top"><span id="feedback-title"></span><span class="feedback-check"></span></div>
+              <p id="feedback-fact"></p>
+            </div>
+            <button id="next-button" class="primary-button next-button" type="button" hidden>
+              Siguiente pregunta <span>→</span>
+            </button>
+          </div>
+          <div class="quiz-footer"><span>TRIVIA CLUB</span><span id="score-label">0 puntos</span></div>
+        </section>
+
+        <section id="result-screen" class="screen result-screen" hidden>
+          <div class="result-orbit orbit-one"></div>
+          <div class="result-orbit orbit-two"></div>
+          <div class="result-content">
+            <div id="result-icon" class="result-icon">✦</div>
+            <p class="section-kicker">PARTIDA TERMINADA</p>
+            <h2 id="result-title"></h2>
+            <p id="result-message" class="result-message"></p>
+            <div class="score-card">
+              <span class="score-caption">TU PUNTUACIÓN</span>
+              <strong id="final-score"></strong>
+              <span id="final-category" class="final-category"></span>
+            </div>
+            <button id="play-again-button" class="primary-button" type="button">
+              Jugar otra vez <span>↗</span>
+            </button>
+            <button id="home-button" class="text-button home-button" type="button">Volver al inicio</button>
+          </div>
+        </section>
+      </main>
+      <div id="toast" class="toast" role="status" hidden></div>
+    </div>
+  </body>
+</html>
